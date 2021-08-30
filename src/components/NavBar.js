@@ -4,7 +4,7 @@ import CartWidget from "./CartWidget.jsx";
 
 function NavBar () {
     return <>
-        <nav class="topnav">
+        <nav className="topnav">
     <ul>
       <li><a href="./index.html">Home</a></li>
       <li><a href="./libros.html">Libros</a></li>
