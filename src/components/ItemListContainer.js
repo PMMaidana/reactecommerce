@@ -1,5 +1,5 @@
 import { useState, useEffect} from 'react';
-import loader from "./Productos/Libros"
+import { loader } from "./Productos/Libros"
 import ItemList from './ItemList/ItemList';
 
 function ItemListContainer() {
@@ -15,8 +15,6 @@ function ItemListContainer() {
             .then((resp)=> setItems(resp) ) 
             }
         })
-    
-        console.log(items)
     
     return (
         <>
