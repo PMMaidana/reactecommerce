@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
-import { getProduc } from "../Productos/Libros";
+import { getBooks } from "../Productos/Libros";
 import ItemDetail from "./ItemDetail";
+import { useParams } from "react-router-dom"
 
 function ItemDetailContainer() {
     const [ producto, setProducto ] = useState ({});
     const [ cargando, setCargando ] = useState(true);
+    const {id} = useParams();
 
     useEffect (() => {
-        getProduc.then(res => {
+        getBooks(id)
+        .then(res => {
             setProducto(res)
             setCargando(false)
         })

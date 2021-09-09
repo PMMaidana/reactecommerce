@@ -10,7 +10,6 @@ import ItemCount from './components/ItemCount';
 
 ReactDOM.render(
   <React.StrictMode>
-    <NavBar />
     <App />
     
     

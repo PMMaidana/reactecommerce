@@ -13,6 +13,7 @@ function Item({item}) {
                 <div>
                     {`precio ${item.price}`}<br/>
                 </div>
+                <a href={`/detalle/${item.id}`}><button>Detalles</button></a>
             </div>
         </>
     )

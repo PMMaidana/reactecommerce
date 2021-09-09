@@ -4,7 +4,8 @@ const books = [
     { id: "3", name: "Monster Manual", url:'https://media.dnd.wizards.com/styles/product_image_left_scale/public/images/product/DnD_MonsterManual.png', categoria: "5e" , price: 44.99 },
   ];
 
-function getBooks(id) {
+export async function getBooks(id) {
+    await resolveAfter2Seconds();
     if (id===undefined) {
         return books
     }else{
@@ -14,11 +15,13 @@ function getBooks(id) {
 export let loader = new Promise((resolve) => {
     setTimeout(() => {
         resolve(getBooks());        
-    }, 2000);
+    });
 });
 
-export const getProduc = new Promise ((resuelto)=> {
-    setTimeout(() => {
-        resuelto(getBooks(2))
-    }, 3000)
-})
+function resolveAfter2Seconds() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve('resolved');
+      }, 2000);
+    });
+}
