@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { getBooks } from "../Productos/Libros";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom"
+import 'bootstrap/dist/css/bootstrap.css';
+import Spinner from 'react-bootstrap/Spinner';
 
 function ItemDetailContainer() {
     const [ producto, setProducto ] = useState ({});
@@ -19,7 +21,7 @@ function ItemDetailContainer() {
     return (
         <>
         {cargando ?
-                    <h2>Cargando Producto..</h2>
+                    <Spinner animation="border" />
                 :
                     <ItemDetail producto={producto} />
                     }

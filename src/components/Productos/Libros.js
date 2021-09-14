@@ -9,7 +9,7 @@ export async function getBooks(id) {
     if (id===undefined) {
         return books
     }else{
-        return books.find(book => book.id == id)
+        return books.find(book => book.id === id)
     }
 }
 export let loader = new Promise((resolve) => {
