@@ -9,7 +9,6 @@ function ItemDetail ( {producto} ) {
         console.log(cantidad)  
         agregarAlCarrito(producto, cantidad)
     }
-
     
     return (
     <>

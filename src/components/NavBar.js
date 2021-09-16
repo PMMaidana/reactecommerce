@@ -7,11 +7,11 @@ function NavBar () {
     return <>
         <nav className="topnav">
     <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/libros">Libros</a></li>
-      <li><a href="/contacto">Contacto</a></li>
-      <li><a href="/logueo">Login/Registro</a></li>
-      <li><a href="/ayuda">Ayuda</a></li>
+      <li><Link to="/">Home</Link></li>
+      <li><Link to="/libros">Libros</Link></li>
+      <li><Link to="/contacto">Contacto</Link></li>
+      <li><Link to="/logueo">Login/Registro</Link></li>
+      <li><Link to="/ayuda">Ayuda</Link></li>
       <li><Link to='/cart'><CartWidget /></Link></li>
     </ul>
     <h3>Lethani Books</h3>

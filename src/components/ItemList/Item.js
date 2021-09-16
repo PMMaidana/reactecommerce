@@ -1,4 +1,5 @@
 import './Item.css';
+import { Link } from 'react-router-dom'
 
 function Item({item}) {
     return (
@@ -13,7 +14,7 @@ function Item({item}) {
                 <div>
                     {`precio ${item.price}`}<br/>
                 </div>
-                <a href={`/detalle/${item.id}`}><button>Detalles</button></a>
+                <Link to={`/detalle/${item.id}`}><button>Detalles</button></Link>
             </div>
         </>
     )

@@ -9,20 +9,36 @@ function AppContextProvider({children}) {
     const [listaCarrito, setListaCarrito] = useState([]);
 
     function agregarAlCarrito(prod, cantidad) {
-        setListaCarrito([...listaCarrito, {item: prod, quantity: cantidad}])
+        
+        const index = listaCarrito.findIndex(i => i.id == prod.id);
+        console.log(`este es el index ${index}`);
+
+        if (index > -1) {
+            const oldQy = listaCarrito[index].quantity;
+
+            listaCarrito.splice(index, 1)
+            setListaCarrito([...listaCarrito, {...prod, quantity: cantidad + oldQy}])
+
+        }else {
+        setListaCarrito([...listaCarrito, {...prod, quantity: cantidad}])
+        }
     }
 
     const borrarListado =()=> {
         setListaCarrito([]);
     }
 
-    console.log(listaCarrito);
+    const precioTotal =()=>{
+        return listaCarrito.reduce((acum, valor)=>(acum + (valor.quantity * valor.price)), 0) 
+    }
+  
 
     return (
         <AppContext.Provider value={{
             listaCarrito,
             agregarAlCarrito,
-            borrarListado
+            borrarListado,
+            precioTotal
         }}>
             {children}
         </AppContext.Provider>
