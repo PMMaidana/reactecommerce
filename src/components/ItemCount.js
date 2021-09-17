@@ -31,13 +31,14 @@ function ItemCount( {initial, stock, onAdd}) {
 
         <div className="item-count" id="container">
               
-        <button className="btn btn-primary" onClick={() => add()}>
-          +
+        <button className="btn btn-primary" onClick={() => remove()}>
+        -
         </button>
         <span> {count} </span>
-        <button className="btn btn-primary" onClick={() => remove()}>
-          -
-        </button><br />
+        <button className="btn btn-primary" onClick={() => add()}>
+        +
+        </button>
+        <br />
 
         <button className="btn btn-primary" onClick={handlerOnAdd}>Agregar</button>
         </div>

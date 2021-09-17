@@ -24,6 +24,11 @@ function AppContextProvider({children}) {
         }
     }
 
+    const borrarItem = (item) => {
+        const borrarProd = listaCarrito.filter((prod) => prod.id !== item);
+        return setListaCarrito(borrarProd);
+    }
+
     const borrarListado =()=> {
         setListaCarrito([]);
     }
@@ -38,7 +43,8 @@ function AppContextProvider({children}) {
             listaCarrito,
             agregarAlCarrito,
             borrarListado,
-            precioTotal
+            precioTotal,
+            borrarItem
         }}>
             {children}
         </AppContext.Provider>
