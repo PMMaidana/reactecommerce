@@ -3,10 +3,10 @@ import Item from './Item'
 
 function ItemList({items}) {
     return (
-        <div key={items.id}>
-           <ul>
+        <div className="container">
+            <div className="row">
                 { items.map((item)=>  <Item item={item} />  )  }
-            </ul>   
+            </div>
         </div>
     )
 }

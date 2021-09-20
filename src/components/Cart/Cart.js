@@ -1,28 +1,31 @@
 import { useAppContext } from "../../context/AppContext"
+import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom'
 
 const Cart = () => {
 
-    const {listaCarrito , borrarListado, precioTotal, borrarItem} = useAppContext() 
+    const {listaCarrito , borrarListado, precioTotal, borrarItem} = useAppContext()
 
-    {/* <div className="Cart">
-            
-            <div className="Cart-Container">
-            {listaCarrito.map(pro =><div> 
-                <p>{ pro.name}</p>
-                <p><img src={`${pro.url}`} /></p>
-                <p>{ pro.quantity}</p>
-                <button onClick="" className="delete-btn"> X </button>
+    const [ emptyCart, setEmptyCart ] = useState(true)
 
-                </div>
-                )}
-                {precioTotal()}
-            <button className="remove" onClick={borrarListado} >Borrar Carrito</button>
-            </div>
-        </div> */}
-    
+    useEffect (() => {
+        if (listaCarrito.length !== 0){
+            setEmptyCart(false);
+        }else{setEmptyCart(true)}
+    })
 
     return (
-
+    <>
+    {emptyCart ?
+    
+    <div className="alert alert-primary" role="alert">El carrito esta vacio.
+    <br />
+        <Link to="/">
+        <button className="btn btn-primary mt-5">Volver a Home</button>
+        </Link>
+    </div>
+        :
+        
         <div className="container bootstrap snippets bootdey">
     <div className="col-md-9 col-sm-8 content">
         <div className="row">
@@ -45,17 +48,18 @@ const Cart = () => {
                                 <>
                                 
                                 <tr>
-                                
-                                    <td><img src={`${prod.url}`} className="img-cart" /></td>
+                                    <div className={prod.id}></div>
+                                    <div><td><img src={`${prod.url}`} className="img-cart" /></td></div>
                                     <td><strong>{prod.name}</strong><p>{prod.categoria}</p></td>
                                     <td>
                                     <form className="form-inline">
                                         <p className="form-control">{prod.quantity}</p>
-                                        <button onClick={() => borrarItem(prod.id)}><i className="fa fa-trash-o">X</i></button>
+                                        <button onClick={(e) => borrarItem(prod.id, e)} className="btn btn-secondary">X</button>
                                     </form>
                                     </td>
                                     <td>${prod.price}</td>
-                                    <td>({prod.quantity*prod.price})</td>
+                                    <td>({(prod.quantity*prod.price).toFixed(2)})</td>
+                                    
                                 </tr>
                                 
                                 <tr>
@@ -72,15 +76,16 @@ const Cart = () => {
                                 </tr>
                                 </tfoot>
                         </table>
-                        <button className="remove" onClick={borrarListado} >Borrar Carrito</button>
+                        <button className="btn btn-danger" onClick={borrarListado} >Borrar Carrito</button>
                     </div>
-                </div>
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-        
+    }
+    </>
     )
 }
 

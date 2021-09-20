@@ -11,7 +11,7 @@ function AppContextProvider({children}) {
     function agregarAlCarrito(prod, cantidad) {
         
         const index = listaCarrito.findIndex(i => i.id == prod.id);
-        console.log(`este es el index ${index}`);
+        console.log(`este es el index ${index}, ${prod.id}`);
 
         if (index > -1) {
             const oldQy = listaCarrito[index].quantity;
@@ -24,8 +24,10 @@ function AppContextProvider({children}) {
         }
     }
 
-    const borrarItem = (item) => {
+    const borrarItem = (item, e) => {
+        e.preventDefault();
         const borrarProd = listaCarrito.filter((prod) => prod.id !== item);
+        console.log(borrarProd)
         return setListaCarrito(borrarProd);
     }
 
@@ -34,7 +36,7 @@ function AppContextProvider({children}) {
     }
 
     const precioTotal =()=>{
-        return listaCarrito.reduce((acum, valor)=>(acum + (valor.quantity * valor.price)), 0) 
+        return listaCarrito.reduce((acum, valor)=>(acum + (valor.quantity * valor.price)), 0).toFixed(2);
     }
   
 
