@@ -13,8 +13,10 @@ function ItemDetailContainer() {
     useEffect (() => {
         getBooks(id)
         .then(res => {
-            setProducto(res)
+            
+            setProducto(res.filter(x => x.id == id))
             setCargando(false)
+
         })
     }, [])
 
@@ -23,7 +25,7 @@ function ItemDetailContainer() {
         {cargando ?
                     <Spinner animation="border" />
                 :
-                    <ItemDetail producto={producto} />
+                    <ItemDetail producto={producto[0]} />
                     }
         </>
     )

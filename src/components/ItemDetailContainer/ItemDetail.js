@@ -5,8 +5,7 @@ function ItemDetail ( {producto} ) {
 
     const {agregarAlCarrito} = useAppContext();
 
-    const onAdd=(cantidad)=>{
-        console.log(cantidad)  
+    const onAdd=(cantidad)=>{ 
         agregarAlCarrito(producto, cantidad)
     }
     
@@ -18,7 +17,7 @@ function ItemDetail ( {producto} ) {
                     <label>{producto.name}</label>
                 </div>
                 <div className="container">
-                    <img src={producto.url} />
+                    <img src={producto.url} alt="imagen" />
                     <br/>
                     <label>{producto.categoria}</label>
                 </div>

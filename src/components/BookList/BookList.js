@@ -1,8 +1,8 @@
 import { useState, useEffect} from 'react';
-import ItemList from './ItemList/ItemList';
-import { getFirestore } from '../service/getFirebase';
+import ItemList from '../ItemList/ItemList';
+import { getFirestore } from '../../service/getFirebase';
 
-function ItemListContainer() {
+function BookList() {
     const [items, setItems] = useState([])
     
     useEffect(() => {
@@ -14,6 +14,7 @@ function ItemListContainer() {
                 console.log('no hay datos');
             }
             setItems(data.docs.map(item => ({ id: item.id, ...item.data() }) ) );
+
         });
 
         }, [])
@@ -24,4 +25,4 @@ function ItemListContainer() {
         )
     }
     
-export default ItemListContainer;
+export default BookList;

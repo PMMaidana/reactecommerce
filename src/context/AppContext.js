@@ -11,7 +11,6 @@ function AppContextProvider({children}) {
     function agregarAlCarrito(prod, cantidad) {
         
         const index = listaCarrito.findIndex(i => i.id == prod.id);
-        console.log(`este es el index ${index}, ${prod.id}`);
 
         if (index > -1) {
             const oldQy = listaCarrito[index].quantity;
