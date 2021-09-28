@@ -18,7 +18,7 @@ function ItemDetailContainer() {
             setCargando(false)
 
         })
-    }, [])
+    })
 
     return (
         <>

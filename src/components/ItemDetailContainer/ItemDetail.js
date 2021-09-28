@@ -17,7 +17,7 @@ function ItemDetail ( {producto} ) {
                     <label>{producto.name}</label>
                 </div>
                 <div className="container">
-                    <img src={producto.url} alt="imagen" />
+                    <img src={producto.url} alt="imagen" className="img-detail"/>
                     <br/>
                     <label>{producto.categoria}</label>
                 </div>

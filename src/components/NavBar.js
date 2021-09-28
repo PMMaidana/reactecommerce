@@ -10,7 +10,7 @@ function NavBar () {
       <li><Link to="/">Home</Link></li>
       <li><Link to="/libros">Libros</Link></li>
       <li><Link to="/contacto">Contacto</Link></li>
-      <li><Link to="/logueo">Login/Registro</Link></li>
+      <li><Link to="/login">Login/Registro</Link></li>
       <li><Link to="/ayuda">Ayuda</Link></li>
       <li><Link to='/cart'><CartWidget /></Link></li>
     </ul>

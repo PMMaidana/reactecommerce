@@ -1,7 +1,7 @@
 import { useAppContext } from "../../context/AppContext"
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
-
+import CheckInForm from "./CartCheckin";
 
 
 const CartView = () => {
@@ -16,6 +16,7 @@ const CartView = () => {
         }else{setEmptyCart(true)}
     },[listaCarrito.length])
 
+    console.log(listaCarrito);
 
     return (
         <>
@@ -28,7 +29,7 @@ const CartView = () => {
         </Link>
     </div>
         :
-        
+    <>  
     <div className="container bootstrap snippets bootdey">
     <div className="col-md-9 col-sm-8 content">
         <div className="row">
@@ -80,12 +81,16 @@ const CartView = () => {
                         </table>
                         <button className="btn btn-danger" onClick={borrarListado} >Borrar Carrito</button>
                         </div>
+
+                        
                     </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <CheckInForm />
+    </>
     }
     </>
     )

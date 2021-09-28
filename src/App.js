@@ -6,6 +6,7 @@ import NavBar from './components/NavBar';
 import AppContextProvider from './context/AppContext';
 import Cart from "./components/Cart/Cart";
 import BookList from "./components/BookList/BookList";
+import LoginForm from './components/Cart/CartCheckin';
 
 function App() {
 
@@ -31,7 +32,11 @@ function App() {
             <Route exact path='/cart'>
               <Cart />
             </Route>
-          
+
+            <Route exact path='/login'>
+              <LoginForm />
+            </Route>
+
             
         </Switch>
     </Router>
